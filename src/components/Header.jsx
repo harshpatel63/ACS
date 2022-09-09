@@ -1,78 +1,37 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
+    const navlinks = [
+        { name: "Home", url: "/home" },
+        { name: "Register Complaint", url: "/form" },
+        { name: "Complaint Status", url: "/status" },
+        { name: "About", url: "/about" },
+    ];
     return (
         <div>
             <header>
-                <div class="px-3 py-2 text-bg-dark">
-                    <div class="container">
-                        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <div className="px-3 py-2 text-bg-dark">
+                    <div className="container">
+                        <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                             <a
                                 href="/"
-                                class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none"
+                                className="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none"
                             >
-                                <svg
-                                    class="bi me-2"
-                                    width="40"
-                                    height="32"
-                                    role="img"
-                                    aria-label="Bootstrap"
-                                ></svg>
+                                ACS
                             </a>
 
-                            <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-                                <li>
-                                    <a href="#" class="nav-link text-secondary">
-                                        <svg
-                                            class="bi d-block mx-auto mb-1"
-                                            width="24"
-                                            height="24"
-                                        ></svg>
-                                        Home
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link text-white">
-                                        <svg
-                                            class="bi d-block mx-auto mb-1"
-                                            width="24"
-                                            height="24"
-                                        ></svg>
-                                        Dashboard
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link text-white">
-                                        <svg
-                                            class="bi d-block mx-auto mb-1"
-                                            width="24"
-                                            height="24"
-                                        ></svg>
-                                        Orders
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link text-white">
-                                        <svg
-                                            class="bi d-block mx-auto mb-1"
-                                            width="24"
-                                            height="24"
-                                        ></svg>
-                                        Products
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link text-white">
-                                        <svg
-                                            class="bi d-block mx-auto mb-1"
-                                            width="24"
-                                            height="24"
+                            <ul className="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                                {navlinks.map((eachlink) => (
+                                    <li>
+                                        <Link
+                                            to={eachlink.url}
+                                            className="nav-link text-white"
                                         >
-                                            ll
-                                        </svg>
-                                        Customers
-                                    </a>
-                                </li>
+                                            {eachlink.name}
+                                        </Link>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </div>
