@@ -1,0 +1,50 @@
+
+nav{
+    z-index: 1;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 8vh;
+    width: 100%;
+    background: #02171D;
+    box-shadow: 0 0 1rem black;
+}
+
+.nav-links{    
+    display: flex;
+    list-style: none;
+}
+
+.nav-links a{   
+    color: ivory;
+    text-decoration: none; 
+    letter-spacing: 0.05rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+    margin: 0 1rem;
+    text-transform: uppercase;
+}
+
+
+.nav-links a.active, .nav-links a:hover{
+    font-weight: 700;
+    background-color: ivory;
+    color: #02171D;
+    border-radius: 0.1rem;
+    transition: 0.5s ease-in;
+}
+
+nav .burger{
+    cursor: pointer;
+    display: none;
+}
+
+nav .burger div{
+    margin: 0.2rem 0;
+    height: 0.15rem;
+    width: 1.5rem;
+    background-color: ivory;
+    transition: 0.5s ease-in;
+}
