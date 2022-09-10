@@ -1,60 +1,105 @@
-import React from "react";
-// import { Link } from "react-router-dom";
-import "./css/Header.css"
+import React, { useEffect } from "react";
+import "./css/Header.css";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+
+// import web3 from "../web3";
+// import { ratingAbi, ratingAddress } from "../Rating";
 
 function Header() {
+    let [isvisible, setisvisible] = useState(false);
     const navlinks = [
         { name: "Home", url: "/home", class: "home"},
         { name: "Register Complaint", url: "/form", class: "form"},
         { name: "Complaint Status", url: "/status", class: "status"},
         { name: "About", url: "/about", class: "about"},
     ];
-    return (
-        <div>
-            <header>
-                <nav>            
-                    <div class="nav-links">
-                        <a class="active home" href="#home">Home</a>
-                        <a class="about" href="#about">About</a>
-                        <a class="experience" href="#experience">Experience</a>
-                        <a class="skills" href="#skills">Skills</a>
-                        <a class="work" href="#work">Work</a>
-                        <a class="connect" href="#connect">Connect</a>
-                    </div>
-                    <div class="burger">
-                        <div class="line1"></div>
-                        <div class="line2"></div>
-                        <div class="line3"></div>
-                    </div>
-                </nav>
-                {/* <div className="px-3 py-2 text-bg-dark">
-                    <div className="container">
-                        <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                            <a
-                                href="/"
-                                className="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none"
-                            >
-                                ACS
-                            </a>
 
-                            <ul className="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-                                {navlinks.map((eachlink) => (
-                                    <li>
+    /* ------------------------------- Just blockchain things ------------------------------- */
+    // useEffect(() => {
+    //     loadBlockchainData();
+    // }, []);
+
+    // async function loadBlockchainData() {
+    //     let accounts;
+    //     try {
+    //         accounts = await web3.eth.getAccounts();
+    //     } catch (err) {
+    //         // this.state.ismetamaskavailable = false;
+    //         console.log("please install metamask");
+    //         return;
+    //     }
+
+    //     window.MetaMaskAccount = accounts[0];
+    //     window.ratingContract = new web3.eth.Contract(ratingAbi, ratingAddress);
+    //     console.log(window.ratingContract);
+    //     const count = await window.ratingContract.methods.getCount(1).call();
+    //     const points = await window.ratingContract.methods.getPoints(1).call();
+    //     console.log(count, points);
+    // }
+    /*---------------------------------------------------------------------------------------*/
+
+    return (
+        <>
+            <div className="header header-wrapper">
+                <nav className="navbar navbar-expand-lg bg-light">
+                    <div className="container-fluid">
+                        <Link className="navbar-brand" to="/">
+                            {/* <img                                
+                                alt="Meta Basket Logo"
+                                className="header__brand__img"
+                            /> */}
+                            ACS
+                        </Link>
+                        <button
+                            className="navbar-toggler"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavAltMarkup"
+                            aria-controls="navbarNavAltMarkup"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
+                            onClick={() => setisvisible(!isvisible)}
+                        >
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <div
+                            className={
+                                (isvisible ? "" : "collapse") +
+                                " navbar-collapse"
+                            }
+                            id="bs-example-navbar-collapse-1"
+                        >
+                            <ul className="navbar-nav nav_links">
+                                {navlinks.map((ele) => (
+                                    <li
+                                        key={ele.name}
+                                        className="nav-item"
+                                        onClick={auto_closenavbar_on_mobile}
+                                    >
                                         <Link
-                                            to={eachlink.url}
-                                            className="nav-link text-white"
+                                            className="nav-link"
+                                            to={"/" + ele.link}
                                         >
-                                            {eachlink.name}
+                                            {ele.name}
                                         </Link>
                                     </li>
                                 ))}
                             </ul>
                         </div>
                     </div>
-                </div> */}
-            </header>
-        </div>
+                </nav>
+            </div>
+
+            <div className="dummy-head"></div>
+        </>
     );
+    /*
+     * For auto closing navbar on click
+     */
+    function auto_closenavbar_on_mobile() {
+        setisvisible(false);
+    }
 }
 
 export default Header;
