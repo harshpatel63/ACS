@@ -1,0 +1,29 @@
+.section-full {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-center {
+    width: 100%;
+}
+@media (min-width: 1200px) {
+    .container-center {
+        max-width: 1200px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container-center {
+        max-width: 960px;
+    }
+}
+@media (min-width: 768px) {
+    .container-center {
+        max-width: 720px;
+    }
+}
+@media (min-width: 576px) {
+    .container-center {
+        max-width: 540px;
+    }
+}
