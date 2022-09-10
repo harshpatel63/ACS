@@ -79,7 +79,7 @@ function Header() {
                                     >
                                         <Link
                                             className="nav-link"
-                                            to={"/" + ele.link}
+                                            to={ele.url}
                                         >
                                             {ele.name}
                                         </Link>
