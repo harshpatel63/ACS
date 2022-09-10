@@ -3,7 +3,7 @@ import "./css/Header.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import logo from "../assets/logo.png";
-// import web3 from "../web3";
+import web3 from "../web3";
 // import { ratingAbi, ratingAddress } from "../Rating";
 
 function Header() {
