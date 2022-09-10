@@ -47,7 +47,7 @@ function Header() {
                         <Link className="navbar-brand" to="/">
                             <img
                                 src={logo}
-                                alt="Meta Basket Logo"
+                                alt="ACS Logo"
                                 className="header__brand__img"
                             />
                             ACS
