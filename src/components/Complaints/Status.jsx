@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./css/Status.css";
 
 const COMPLAINT_STATUS = {
@@ -18,6 +18,20 @@ function Status() {
         category: "",
         description: "",
     });
+    useEffect(() => {
+        var map = window.L.map("map").setView([15.2993, 74.124], 10);
+        window.L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            maxZoom: 19,
+            attribution: "© OpenStreetMap",
+        }).addTo(map);
+        window.L.marker([15.412557520307072, 73.97804775322604])
+            .addTo(map)
+            .bindPopup("Location of the complaint")
+            .openPopup();
+        window.L.marker([15.412557520307072, 73.97804775322604], {
+            title: "NITG",
+        }).addTo(map);
+    }, []);
     function fetchComplaintStatus() {}
     return (
         <section className="section-full">
@@ -67,9 +81,14 @@ function Status() {
                     <a
                         className={"btn " + COMPLAINT_STATUS.completed}
                         href="#review-area"
+                        style={{ padding: "10px 20px", margin: "20px" }}
                     >
                         Completed
                     </a>
+                    <div
+                        id="map"
+                        style={{ height: "500px", width: "100%" }}
+                    ></div>
                 </div>
             </div>
         </section>
