@@ -9,10 +9,10 @@ import { useState } from "react";
 function Header() {
     let [isvisible, setisvisible] = useState(false);
     const navlinks = [
-        { name: "Home", url: "/home", class: "home"},
-        { name: "Register Complaint", url: "/form", class: "form"},
-        { name: "Complaint Status", url: "/status", class: "status"},
-        { name: "About", url: "/about", class: "about"},
+        { name: "Home", url: "/", class: "home" },
+        { name: "Register Complaint", url: "/form", class: "form" },
+        { name: "Complaint Status", url: "/status", class: "status" },
+        { name: "About", url: "/about", class: "about" },
     ];
 
     /* ------------------------------- Just blockchain things ------------------------------- */
@@ -77,10 +77,7 @@ function Header() {
                                         className="nav-item"
                                         onClick={auto_closenavbar_on_mobile}
                                     >
-                                        <Link
-                                            className="nav-link"
-                                            to={ele.url}
-                                        >
+                                        <Link className="nav-link" to={ele.url}>
                                             {ele.name}
                                         </Link>
                                     </li>

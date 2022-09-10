@@ -6,7 +6,6 @@ import Form from "./components/Complaints/Form";
 import Status from "./components/Complaints/Status";
 import About from "./components/About";
 import Footer from "./components/Footer";
-import Carousel from "./components/Carousel";
 
 function App() {
     return (
@@ -15,7 +14,6 @@ function App() {
                 <Header />
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/home" element={<><Home /><Carousel/></>} />
                     <Route path="/form" element={<Form />} />
                     <Route path="/status" element={<Status />} />
                     <Route path="/about" element={<About />} />
