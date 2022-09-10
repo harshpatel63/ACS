@@ -37,13 +37,16 @@ function Form() {
                 <span className="sub-form-title">
                     <h3 style={{ padding: "0" }}>Your Details</h3>
                 </span>
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">
+                <div className="mb-3">
+                    <label
+                        htmlFor="exampleFormControlInput1"
+                        className="form-label"
+                    >
                         Your Name
                     </label>
                     <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         id="exampleFormControlInput1"
                         placeholder="Your name / Avatar name"
                         onChange={(evt) => updateData("name", evt.target.value)}
@@ -53,13 +56,16 @@ function Form() {
                 <span className="sub-form-title">
                     <h3>Incident Details</h3>
                 </span>
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">
+                <div className="mb-3">
+                    <label
+                        htmlFor="exampleFormControlInput1"
+                        className="form-label"
+                    >
                         Title
                     </label>
                     <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         id="exampleFormControlInput1"
                         placeholder="Subject of the complaint"
                         onChange={(evt) =>
@@ -67,13 +73,16 @@ function Form() {
                         }
                     />
                 </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">
+                <div className="mb-3">
+                    <label
+                        htmlFor="exampleFormControlInput1"
+                        className="form-label"
+                    >
                         Location
                     </label>
                     <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         id="exampleFormControlInput1"
                         placeholder="lat, long"
                         onChange={(evt) =>
@@ -81,8 +90,8 @@ function Form() {
                         }
                     />
                 </div>
-                <div class="mb-3">
-                    <label for="date" class=" col-form-label">
+                <div className="mb-3">
+                    <label htmlFor="date" className=" col-form-label">
                         Select Date: &nbsp;
                     </label>
                     <input
@@ -93,19 +102,25 @@ function Form() {
                     />
                 </div>
 
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">
+                <div className="mb-3">
+                    <label
+                        htmlFor="exampleFormControlInput1"
+                        className="form-label"
+                    >
                         Complaint Category
                     </label>
                     <div className="radio-buttons">{renderRadioButtons()}</div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">
+                <div className="mb-3">
+                    <label
+                        htmlFor="exampleFormControlTextarea1"
+                        className="form-label"
+                    >
                         Please describe the incident in Detail
                     </label>
                     <textarea
-                        class="form-control"
+                        className="form-control"
                         id="exampleFormControlTextarea1"
                         rows="3"
                         onChange={(evt) =>
