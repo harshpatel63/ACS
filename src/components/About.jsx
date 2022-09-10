@@ -12,7 +12,7 @@ function About() {
                             File your complaint without disclosing your
                             identity.
                         </h2>
-                        <h2>Your Security Is Our Responsibility</h2>
+                        <h2>Your Security Is Our Responsibility !</h2>
                     </div>
                 </div>
                 <div className="overlay"></div>
@@ -68,7 +68,7 @@ function About() {
                     </li>
                 </ul>
             </div>
-            <div>
+            <div className="developers">
                 <h1 className="title">DEVELOPER TEAM</h1>
                 <hr />
                 <div className="about_parent_container">

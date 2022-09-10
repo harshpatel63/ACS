@@ -4,10 +4,11 @@
     justify-content: center;
     align-items: center;
     z-index: 0;
-    height: 100vh;
+    height: 70vh;
     max-height: 1000px;
     width: 100%;
-    /* background: url("./assets/home_bg.png") center center no-repeat; */
+    text-align: center;
+    background: url("https://images.unsplash.com/photo-1582266255765-fa5cf1a1d501?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -28,13 +29,14 @@
 
 #home h1 {
     font-size: 4rem;
+    margin-bottom: 2.5rem;
     font-weight: 900;
     color: ivory;
 }
 
 #home h2 {
     margin-top: 1rem;
-    margin-bottom: 3rem;
+    /* margin-bottom: 3rem; */
     font-size: 3rem;
     font-weight: 900;
     color: ivory;
@@ -42,6 +44,8 @@
 
 .home_info{
     color: black ;
+    max-width: 1200px;
+    margin: 1rem auto;
 }
 
 .home_info p{
@@ -65,62 +69,9 @@
     margin-top: 1rem;
 }
 
-
-@media only screen and (max-width: 720px){
-
-
-    /* //////////////////// Home CSS ///////////////////// */
-
-    .parent_home_container {
-        height: 80vh;
-    }
-
-    #home h1{
-        font-size: 2.1rem;        
-        margin-top: 3rem;        
-    }
-    
-    #home h2{
-        margin: 0 1rem;
-        margin-top: 1rem;
-        margin-bottom: 3rem;
-        font-size: 1.8rem;
-    }
-
-    .home_info p{
-        margin: 2rem 2rem;
-        font-size: 1.3rem;
-    }
-    
-    
-    .home_info h3{
-        margin: 1rem 2rem;
-        font-size: 1.3rem;
-    }
-    
-    .home_info li{
-        margin: 0 2rem;
-        font-size: 1rem;
-        margin-top: 0.5rem;
-    }
-
-}
-
-
-@media only screen and (max-width: 380px){
-
-    #home h1{
-        font-size: 1.8rem;        
-        margin-top: 1rem;        
-    }
-    
-    #home h2{
-        margin: 0 1rem;
-        margin-top: 1rem;
-        margin-bottom: 3rem;
-        font-size: 1.5rem;
-    }
-
+.developers{
+    margin: 5rem auto;
+    max-width: 1200px;
 }
 
 
@@ -171,6 +122,46 @@ hr{
 }
 
 
+
+@media only screen and (max-width: 720px){
+
+
+    .parent_home_container {
+        height: 50vh;
+    }
+
+    #home h1{
+        font-size: 2.1rem;        
+        margin-top: 3rem;        
+    }
+    
+    #home h2{
+        margin: 0 1rem;
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+        font-size: 1.8rem;
+    }
+
+    .home_info p{
+        margin: 2rem 2rem;
+        font-size: 1.3rem;
+    }
+    
+    
+    .home_info h3{
+        margin: 1rem 2rem;
+        font-size: 1.3rem;
+    }
+    
+    .home_info li{
+        margin: 0 2rem;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+    }
+
+}
+
+
 @media only screen and (max-width: 560px){
 
     .dots{
@@ -199,6 +190,22 @@ hr{
     .myself p{
         font-size: 1rem;
         line-height: 1.5rem;
+    }
+
+}
+
+@media only screen and (max-width: 380px){
+
+    #home h1{
+        font-size: 1.8rem;        
+        margin-top: 1rem;    
+        margin-bottom: 1;    
+    }
+    
+    #home h2{
+        
+        margin-bottom: 0rem;
+        font-size: 1.5rem;
     }
 
 }
