@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import logo from "../assets/logo.png";
 import web3 from "../web3";
-// import { ratingAbi, ratingAddress } from "../Rating";
+import { complaintAbi, complaintAddress } from "../complaint";
 
 function Header() {
     let [isvisible, setisvisible] = useState(false);
@@ -16,27 +16,27 @@ function Header() {
     ];
 
     /* ------------------------------- Just blockchain things ------------------------------- */
-    // useEffect(() => {
-    //     loadBlockchainData();
-    // }, []);
+    useEffect(() => {
+        loadBlockchainData();
+    }, []);
 
-    // async function loadBlockchainData() {
-    //     let accounts;
-    //     try {
-    //         accounts = await web3.eth.getAccounts();
-    //     } catch (err) {
-    //         // this.state.ismetamaskavailable = false;
-    //         console.log("please install metamask");
-    //         return;
-    //     }
+    async function loadBlockchainData() {
+        let accounts;
+        try {
+            accounts = await web3.eth.getAccounts();
+        } catch (err) {
+            // this.state.ismetamaskavailable = false;
+            console.log("please install metamask");
+            return;
+        }
 
-    //     window.MetaMaskAccount = accounts[0];
-    //     window.ratingContract = new web3.eth.Contract(ratingAbi, ratingAddress);
-    //     console.log(window.ratingContract);
-    //     const count = await window.ratingContract.methods.getCount(1).call();
-    //     const points = await window.ratingContract.methods.getPoints(1).call();
-    //     console.log(count, points);
-    // }
+        window.MetaMaskAccount = accounts[0];
+        window.complaintContract = new web3.eth.Contract(
+            complaintAbi,
+            complaintAddress
+        );
+        console.log(window.complaintContract);
+    }
     /*---------------------------------------------------------------------------------------*/
 
     return (
