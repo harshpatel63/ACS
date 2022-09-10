@@ -6,7 +6,7 @@
 }
 .dummy-head {
     width: 100%;
-    height: 58px;
+    height: 80px;
 }
 .header__brand__img {
     height: 50px;
@@ -29,19 +29,17 @@
     font-weight: 700;
 }
 
-
-.navbar-collapse{
+.navbar-collapse {
     justify-content: right;
 }
 
-.nav_links a{
+.nav_links a {
     color: black;
-    font-size:large;
+    font-size: large;
     letter-spacing: 0.05rem;
     font-weight: 700;
     /* padding: 0.5rem 1.5rem; */
     margin: 0 1rem;
-    
 
     /* text-transform: uppercase; */
 }

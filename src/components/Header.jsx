@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./css/Header.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-
+import logo from "../assets/logo.png";
 // import web3 from "../web3";
 // import { ratingAbi, ratingAddress } from "../Rating";
 
@@ -45,10 +45,11 @@ function Header() {
                 <nav className="navbar navbar-expand-lg bg-light">
                     <div className="container-fluid">
                         <Link className="navbar-brand" to="/">
-                            {/* <img                                
+                            <img
+                                src={logo}
                                 alt="Meta Basket Logo"
                                 className="header__brand__img"
-                            /> */}
+                            />
                             ACS
                         </Link>
                         <button
