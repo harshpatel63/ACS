@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./css/Status.css";
 
 const COMPLAINT_STATUS = {
-    submitted: "btn-primary",
     pending: "btn-warning",
     inProgress: "btn-danger",
     completed: "btn-success",
@@ -87,7 +86,7 @@ function Status() {
                     </a>
                     <div
                         id="map"
-                        style={{ height: "500px", width: "100%" }}
+                        style={{ height: "500px", width: "100%", zIndex: "1" }}
                     ></div>
                 </div>
             </div>
