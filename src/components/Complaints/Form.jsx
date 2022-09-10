@@ -1,6 +1,36 @@
 import React, { useState } from "react";
 import "./css/Form.css";
 function Form() {
+    let [formData, setformData] = useState({
+        name: "",
+        title: "",
+        location: "",
+        date: "",
+        category: "",
+        description: "",
+    });
+    function updateData(type, value) {
+        switch (type) {
+            case "name":
+                setformData({ ...formData, name: value });
+                break;
+            case "title":
+                setformData({ ...formData, title: value });
+                break;
+            case "location":
+                setformData({ ...formData, location: value });
+                break;
+            case "date":
+                setformData({ ...formData, date: value });
+                break;
+            case "category":
+                setformData({ ...formData, category: value });
+                break;
+            case "description":
+                setformData({ ...formData, description: value });
+                break;
+        }
+    }
     return (
         <section className="section-full">
             <div className="container-center">
@@ -12,10 +42,11 @@ function Form() {
                         Your Name
                     </label>
                     <input
-                        type="email"
+                        type="text"
                         class="form-control"
                         id="exampleFormControlInput1"
                         placeholder="Your name / Avatar name"
+                        onChange={(evt) => updateData("name", evt.target.value)}
                     />
                 </div>
 
@@ -27,10 +58,13 @@ function Form() {
                         Title
                     </label>
                     <input
-                        type="email"
+                        type="text"
                         class="form-control"
                         id="exampleFormControlInput1"
                         placeholder="Subject of the complaint"
+                        onChange={(evt) =>
+                            updateData("title", evt.target.value)
+                        }
                     />
                 </div>
                 <div class="mb-3">
@@ -38,26 +72,25 @@ function Form() {
                         Location
                     </label>
                     <input
-                        type="email"
+                        type="text"
                         class="form-control"
                         id="exampleFormControlInput1"
                         placeholder="lat, long"
+                        onChange={(evt) =>
+                            updateData("location", evt.target.value)
+                        }
                     />
                 </div>
                 <div class="mb-3">
-                    <label for="date" class="col-1 col-form-label">
-                        Date
+                    <label for="date" class=" col-form-label">
+                        Select Date: &nbsp;
                     </label>
-                    <div class="col-5">
-                        <div class="input-group date" id="datepicker">
-                            <input type="text" class="form-control" id="date" />
-                            <span class="input-group-append">
-                                <span class="input-group-text bg-light d-block">
-                                    <i class="fa fa-calendar"></i>
-                                </span>
-                            </span>
-                        </div>
-                    </div>
+                    <input
+                        type="date"
+                        id="birthday"
+                        name="birthday"
+                        onChange={(evt) => updateData("date", evt.target.value)}
+                    />
                 </div>
 
                 <div class="mb-3">
@@ -75,6 +108,9 @@ function Form() {
                         class="form-control"
                         id="exampleFormControlTextarea1"
                         rows="3"
+                        onChange={(evt) =>
+                            updateData("description", evt.target.value)
+                        }
                     ></textarea>
                 </div>
             </div>
@@ -83,6 +119,7 @@ function Form() {
 
     function renderRadioButtons() {
         function setCategory(event) {
+            updateData("category", event.target.value);
             console.log(event.target.value);
         }
 
