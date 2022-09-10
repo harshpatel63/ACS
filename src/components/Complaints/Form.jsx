@@ -1,5 +1,12 @@
 import React, { useState } from "react";
 import "./css/Form.css";
+
+const SUBMIT_STATUS = {
+    STOPPED: 0,
+    RUNNING: 1,
+    FINISHED: 2,
+};
+
 function Form() {
     let [formData, setformData] = useState({
         name: "",
@@ -129,6 +136,16 @@ function Form() {
                         }
                     ></textarea>
                 </div>
+                <button
+                    type="submit"
+                    class="btn btn-warning"
+                    onClick={(evt) => {
+                        evt.preventDefault();
+                        console.log(formData);
+                    }}
+                >
+                    Click me
+                </button>
             </div>
         </section>
     );
@@ -142,23 +159,28 @@ function Form() {
         return (
             <div onChange={setCategory.bind(this)}>
                 <label className="radio-buttons">
-                    <input type="radio" value="Drugs" name="gender" /> Drugs
+                    <input type="radio" value="Drugs" name="gender" /> &nbsp;
+                    Drugs
                 </label>
                 <label className="radio-buttons">
-                    <input type="radio" value="Robbery" name="gender" /> Robbery
+                    <input type="radio" value="Robbery" name="gender" />
+                    &nbsp; Robbery
                 </label>
                 <label className="radio-buttons">
                     <input type="radio" value="Kidnapping" name="gender" />
-                    Kidnapping
+                    &nbsp; Kidnapping
                 </label>
                 <label className="radio-buttons">
-                    <input type="radio" value="Murder" name="gender" /> Murder
+                    <input type="radio" value="Murder" name="gender" />
+                    &nbsp; Murder
                 </label>
                 <label className="radio-buttons">
-                    <input type="radio" value="Murder" name="gender" /> Rape
+                    <input type="radio" value="Murder" name="gender" />
+                    &nbsp; Rape
                 </label>
                 <label className="radio-buttons">
-                    <input type="radio" value="Rape" name="gender" /> Others
+                    <input type="radio" value="Rape" name="gender" />
+                    &nbsp; Others
                 </label>
             </div>
         );
