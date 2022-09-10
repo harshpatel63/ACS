@@ -42,14 +42,15 @@ function Form() {
                         htmlFor="exampleFormControlInput1"
                         className="form-label"
                     >
-                        Your Name
+                        Your Name (default)
                     </label>
                     <input
                         type="text"
                         className="form-control"
                         id="exampleFormControlInput1"
-                        placeholder="Your name / Avatar name"
+                        placeholder="0xA3c4D7D124F066392b6c08ee579bd73C1306cD49"
                         onChange={(evt) => updateData("name", evt.target.value)}
+                        disabled
                     />
                 </div>
 
