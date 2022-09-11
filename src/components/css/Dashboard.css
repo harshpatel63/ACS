@@ -1,11 +1,15 @@
 .dashboard-parent-container{
     background-color: rgba(0, 0, 0, 0.2);
-    height: 50vh;
-    padding-top: 2rem;
+    /* height: 50vh; */
+    padding: 2rem 0;
+}
+
+.dashboard-parent-container h1{
+    text-align: center;
 }
 
 .scorecard-outer-box{
-    width: 60%;
+    width: 70%;
     margin: 0rem auto;
     padding: 1rem;
     border: 2px solid black;
@@ -25,4 +29,44 @@
 
 .score{
     font-size: 30px;
+}
+
+.index-score{
+    width: 80%;
+    margin: 0 auto;
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.rates{
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.rates hr{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.rates span{
+    display: grid;
+    grid-template-columns: 750px 100px 150px;
+    text-align: left;    
+}
+
+.rates span p{
+    margin: auto 0;   
+    padding: 5px;
+}
+
+.span-rates{
+    width: fit-content;
+    margin: 2rem auto;
+}
+
+.span-rates hr{
+    width: 100%;
 }
