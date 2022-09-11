@@ -38,12 +38,14 @@
     font-weight: 600;
     text-align: center;
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
 }
 
 .rates{
     margin: 2rem 0;
     text-align: center;
+   
 }
 
 .rates hr{
@@ -53,7 +55,7 @@
 
 .rates span{
     display: grid;
-    grid-template-columns: 750px 100px 150px;
+    grid-template-columns: 75% 10% 15%;
     text-align: left;    
 }
 
@@ -81,3 +83,25 @@
     margin: 2rem auto;
 }
 
+
+@media screen and (max-width: 550px) { 
+    
+    .rates span{
+        display: flex;
+        flex-direction: column;
+        text-align: left; 
+        margin-left: 0.5rem;   
+    }
+
+    .chart-section{
+        margin: 2rem 0rem;
+        padding: 1rem 0;
+    }
+    
+    .chart-section .chart{
+        width: 80%;
+        margin: 2rem auto;
+    }
+    
+
+}
