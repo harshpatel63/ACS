@@ -35,7 +35,8 @@ function Header() {
             complaintAbi,
             complaintAddress
         );
-        console.log(window.complaintContract);
+        console.log(window.MetaMaskAccount);
+        console.log(window.complaintContract.methods);
     }
     /*---------------------------------------------------------------------------------------*/
 

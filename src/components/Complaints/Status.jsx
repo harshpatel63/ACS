@@ -39,7 +39,7 @@ function Status() {
                 <div className="section-title">
                     <h2>Fetched Complaint</h2>
                 </div>
-                <div class="complaint-details">
+                <div className="complaint-details">
                     <div className="complaints-details__title">
                         <div className="complaints-details__title__name">
                             Name here
@@ -96,20 +96,20 @@ function Status() {
 
 function SearchComplaint(_setcomplaintID) {
     return (
-        <div class="container-center">
+        <div className="container-center">
             <div className="wrap">
-                <div class="search">
+                <div className="search">
                     <input
                         type="text"
-                        class="searchTerm"
+                        className="searchTerm"
                         placeholder="Enter Complaint ID"
                         style={{ height: "100%" }}
                         onChange={(evt) => {
                             _setcomplaintID(evt.target.value);
                         }}
                     />
-                    <button type="submit" class="searchButton">
-                        <i class="fa fa-search"></i>
+                    <button type="submit" className="searchButton">
+                        <i className="fa fa-search"></i>
                     </button>
                 </div>
             </div>

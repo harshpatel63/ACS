@@ -1,13 +1,20 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import "./css/Form.css";
+import {
+    Web3Storage,
+    getFilesFromPath,
+} from "web3.storage/dist/bundle.esm.min.js";
 
 const SUBMIT_STATUS = {
     STOPPED: 0,
     RUNNING: 1,
-    FINISHED: 2,
+    UPLOADING: 2,
+    FINISHED: 3,
 };
 
 function Form() {
+    let [reviewStatus, setreviewStatus] = useState(SUBMIT_STATUS.STOPPED);
     let [formData, setformData] = useState({
         name: "",
         title: "",
@@ -38,6 +45,11 @@ function Form() {
                 break;
         }
     }
+    useEffect(() => {
+        setTimeout(() => {
+            updateData("name", window.MetaMaskAccount);
+        }, 2000);
+    }, []);
     return (
         <section className="section-full">
             <div className="container-center">
@@ -55,8 +67,9 @@ function Form() {
                         type="text"
                         className="form-control"
                         id="exampleFormControlInput1"
-                        placeholder="0xA3c4D7D124F066392b6c08ee579bd73C1306cD49"
-                        onChange={(evt) => updateData("name", evt.target.value)}
+                        placeholder={
+                            formData.name === "" ? "Loading..." : formData.name
+                        }
                         disabled
                     />
                 </div>
@@ -119,7 +132,13 @@ function Form() {
                     </label>
                     <div className="radio-buttons">{renderRadioButtons()}</div>
                 </div>
-
+                <div className="file-upload">
+                    <label htmlFor="exampleFormControlInput1">
+                        Upload Image
+                    </label>
+                    <br />
+                    <input type="file" id="browse-file" multiple />
+                </div>
                 <div className="mb-3">
                     <label
                         htmlFor="exampleFormControlTextarea1"
@@ -138,18 +157,106 @@ function Form() {
                 </div>
                 <button
                     type="submit"
-                    class="btn btn-warning"
+                    className={
+                        "btn btn-primary " +
+                        (reviewStatus !== SUBMIT_STATUS.STOPPED
+                            ? "disabled"
+                            : "")
+                    }
                     onClick={(evt) => {
-                        evt.preventDefault();
-                        console.log(formData);
+                        handleSubmit(evt);
                     }}
                 >
-                    Click me
+                    {reviewStatus == SUBMIT_STATUS.STOPPED && "Submit"}
+                    {reviewStatus == SUBMIT_STATUS.RUNNING && (
+                        <>
+                            <span
+                                style={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                }}
+                            >
+                                Submitting&nbsp;&nbsp;&nbsp;
+                                <div
+                                    className="spinner-border"
+                                    role="status"
+                                    style={{
+                                        height: "15px",
+                                        width: "15px",
+                                        fontSize: "10px",
+                                    }}
+                                >
+                                    <span className="visually-hidden">
+                                        Loading...
+                                    </span>
+                                </div>
+                            </span>
+                        </>
+                    )}
+
+                    {reviewStatus == SUBMIT_STATUS.FINISHED && (
+                        <span>Submitted</span>
+                    )}
+
+                    {reviewStatus == SUBMIT_STATUS.UPLOADING && (
+                        <span>Uploading Files</span>
+                    )}
                 </button>
             </div>
         </section>
     );
+    async function handleSubmit(e) {
+        e.preventDefault();
+        // if (checkForm() == false) return;
+        let browseHandlerFile = document.getElementById("browse-file");
+        console.log(browseHandlerFile.files);
 
+        let imageHashes = [];
+        /*------------ if files are there upload them ------------------ */
+        if (browseHandlerFile.files.length > 0) {
+            const token =
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweGNCZmYxMzM4NWVjMkNkQ2MyQUIwZjdERGRFYjJCNmY4NGI0M2RjQkEiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NjI4MzAzNDcwMTUsIm5hbWUiOiJBQ1MifQ.WZcxoUermP-jOzJKTf6OlXbTqicjA3hQw9kN0q8-95g";
+            const client = new Web3Storage({ token });
+            let cid;
+            setreviewStatus(SUBMIT_STATUS.UPLOADING);
+            try {
+                cid = await client.put(browseHandlerFile.files);
+            } catch (error) {
+                console.log(error);
+                alert("Some error Occured:", error.message);
+                setreviewStatus(SUBMIT_STATUS.STOPPED);
+
+                return;
+            }
+            let IPFS_URL = "https://ipfs.io/ipfs/" + cid + "/";
+            for (let i = 0; i < browseHandlerFile.files.length; i++)
+                imageHashes.push(IPFS_URL + browseHandlerFile.files[i].name);
+        }
+
+        setreviewStatus(SUBMIT_STATUS.RUNNING);
+
+        try {
+            await window.complaintContract.methods
+                .createComplaint(
+                    formData.name,
+                    formData.title,
+                    formData.location,
+                    formData.date,
+                    parseInt(formData.category),
+                    formData.description,
+                    imageHashes
+                )
+                .send({
+                    from: window.MetaMaskAccount,
+                });
+        } catch (e) {
+            alert(e.message + " Please Try again..");
+            setreviewStatus(SUBMIT_STATUS.STOPPED);
+            return;
+        }
+        setreviewStatus(SUBMIT_STATUS.FINISHED);
+    }
     function renderRadioButtons() {
         function setCategory(event) {
             updateData("category", event.target.value);
@@ -159,27 +266,26 @@ function Form() {
         return (
             <div onChange={setCategory.bind(this)}>
                 <label className="radio-buttons">
-                    <input type="radio" value="Drugs" name="gender" /> &nbsp;
-                    Drugs
+                    <input type="radio" value="0" name="gender" /> &nbsp; Drugs
                 </label>
                 <label className="radio-buttons">
-                    <input type="radio" value="Robbery" name="gender" />
+                    <input type="radio" value="1" name="gender" />
                     &nbsp; Robbery
                 </label>
                 <label className="radio-buttons">
-                    <input type="radio" value="Kidnapping" name="gender" />
+                    <input type="radio" value="2" name="gender" />
                     &nbsp; Kidnapping
                 </label>
                 <label className="radio-buttons">
-                    <input type="radio" value="Murder" name="gender" />
+                    <input type="radio" value="3" name="gender" />
                     &nbsp; Murder
                 </label>
                 <label className="radio-buttons">
-                    <input type="radio" value="Murder" name="gender" />
+                    <input type="radio" value="4" name="gender" />
                     &nbsp; Rape
                 </label>
                 <label className="radio-buttons">
-                    <input type="radio" value="Rape" name="gender" />
+                    <input type="radio" value="5" name="gender" />
                     &nbsp; Others
                 </label>
             </div>
