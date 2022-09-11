@@ -20,21 +20,21 @@ function Carousel() {
                 <div className="carousel-inner">
                     <div className="carousel-item active">
                         <img
-                            src="https://source.unsplash.com/random/100x80?sig=1"
+                            src="https://i.pinimg.com/736x/a3/8e/5c/a38e5c80d0813fd9fe59bdf389338898.jpg"
                             className="d-block w-100"
                             alt="..."
                         />
                     </div>
                     <div className="carousel-item">
                         <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTsz6G0FYwFLuS5Ys5o7OsjUVuy78puVXk0w&usqp=CAU"
+                            src="https://assets-global.website-files.com/616e938268c8f0a92cb2b540/617895a3f99eeb3f74fb62ad_Pu3h1voezpklZI_VAWqXB-FHo0X_AbyyXGkJGENhp7Ftndi0udb7bxrvBq4QIhpd7rqoxk_iOLjJyeF2lXtThsaNw5o_i6QrwL3iXlVp1F5ypOfrqwgH8Dz7Bz64DQAiEB6cw-Ij.jpeg"
                             className="d-block w-100"
                             alt="..."
                         />
                     </div>
                     <div className="carousel-item">
                         <img
-                            src="https://source.unsplash.com/random/100x80?sig=3"
+                            src="https://havecamerawilltravel.com/wp-content/uploads/2022/01/youtube-banner-size-800x450.png"
                             className="d-block w-100"
                             alt="..."
                         />
