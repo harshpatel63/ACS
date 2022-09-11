@@ -17,59 +17,31 @@ function About() {
                 </div>
                 <div className="overlay"></div>
             </div>
-            <div className="home_info">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Debitis, repellendus. Excepturi fugit eligendi fugiat sed et
-                    unde quam asperiores sequi quo reprehenderit beatae,
-                    consequatur aliquam exercitationem dolorem atque similique
-                    placeat!
-                </p>
-                <h3>fgkdsjfhks fjdshfklsmdjg nmfbjdsghfds ?</h3>
+            <div className="home_info">                
+                <h3>Problem Statement :</h3>
                 <ul>
                     <li>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Voluptatum placeat labore adipisci ad obcaecati, aperiam
-                        tempore incidunt porro, nostrum, fuga ex officia at
-                        similique quibusdam sequi quos nemo! Commodi, harum?
+                    Often people are afraid to complain to the police about crimes such as illegal mining , drugs, or other crimes. They fear their names begin released and they becoming a target.
                     </li>
                     <li>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Adipisci dolores alias dicta distinctio quod. Recusandae
-                        quaerat quasi nemo quae facilis hic! Esse saepe et
-                        repudiandae quisquam velit adipisci, ullam doloremque?
-                    </li>
-                    <li>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Quos debitis amet nostrum, sunt molestiae consequuntur,
-                        iusto quaerat reiciendis sed quis blanditiis quas sit
-                        eveniet saepe vel quidem dignissimos. Minus, hic.
-                    </li>
+                    This is a major concern and efforts to keep the identity of the complainant hidden is important. Also change in statements and hacking of databases where the statement is stored is also a major concern and can effect the process of judiciary.
+                    </li>                    
                 </ul>
-                <h3>fvgfb ffwfhjf skgsgnmg ?</h3>
+                <h3>Our Solution :</h3>
                 <ul>
                     <li>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Voluptatum placeat labore adipisci ad obcaecati, aperiam
-                        tempore incidunt porro, nostrum, fuga ex officia at
-                        similique quibusdam sequi quos nemo! Commodi, harum?
+                    The core element of our proposed solution is Blockchain Technology. A Blockchain network is a decentralized, distributed ledger that has rigorous cryptographic concepts, consensus mechanisms that makes it reliable, trustworthy and impossible to hack. Anything written in blockchain can’t be removed unless done legally. This ensures that our system doesn't have a single point of failure. Also the users in the blockchain are kept completely anonymous.
                     </li>
                     <li>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Adipisci dolores alias dicta distinctio quod. Recusandae
-                        quaerat quasi nemo quae facilis hic! Esse saepe et
-                        repudiandae quisquam velit adipisci, ullam doloremque?
+                    In a blockchain network each user is identified by a hexadecimal public address which is in no way related with the users identity, unless its mapped explicitly. A user in a blockchain network looks like : 0x0dd86ea683F5E141944A42c2EfEc9E3D9f2cCE31 ( hexadecimal public address )
                     </li>
                     <li>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Quos debitis amet nostrum, sunt molestiae consequuntur,
-                        iusto quaerat reiciendis sed quis blanditiis quas sit
-                        eveniet saepe vel quidem dignissimos. Minus, hic.
+                    The solution also helps to minimize false claims and has trained ML models which predict the rate of crime in that location. Using this prediction, cops can prioritize their action and also can take preemptive steps to bring down crime.
                     </li>
                 </ul>
             </div>
             <div className="developers">
-                <h1 className="title">DEVELOPER TEAM</h1>
+                <h1 className="title">Team - Finite Automata</h1>
                 <hr />
                 <div className="about_parent_container">
                     <div className="myself">
