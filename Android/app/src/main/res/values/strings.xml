@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ACS</string>
+    <string name="please_install_metamask_to_continue">Please install metamask to continue!</string>
 </resources>
