@@ -70,3 +70,14 @@
 .span-rates hr{
     width: 100%;
 }
+
+.chart-section{
+    margin: 2rem 1rem;
+    padding: 1rem;
+}
+
+.chart-section .chart{
+    width: 80%;
+    margin: 2rem auto;
+}
+
