@@ -1,4 +1,4 @@
-export const complaintAddress = "0x89494268e6C6EBd55130010f958F376B3ba94eC3";
+export const complaintAddress = "0x5eD25CC1387c1A1C0b29A923F80464764B3dbdb4";
 
 export const complaintAbi = [
 	{
