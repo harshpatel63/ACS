@@ -1,14 +1,13 @@
-.dashboard-parent-container{
-    background-color: rgba(0, 0, 0, 0.2);
+.dashboard-parent-container {
     /* height: 50vh; */
     padding: 2rem 0;
 }
 
-.dashboard-parent-container h1{
+.dashboard-parent-container h1 {
     text-align: center;
 }
 
-.scorecard-outer-box{
+.scorecard-outer-box {
     width: 70%;
     margin: 0rem auto;
     padding: 1rem;
@@ -18,20 +17,20 @@
     justify-content: space-evenly;
 }
 
-.score-box{
+.score-box {
     display: inline;
     text-align: center;
 }
 
-.score-title{
+.score-title {
     font-size: 20px;
 }
 
-.score{
+.score {
     font-size: 30px;
 }
 
-.index-score{
+.index-score {
     width: 80%;
     margin: 0 auto;
     font-size: 25px;
@@ -42,66 +41,61 @@
     justify-content: space-evenly;
 }
 
-.rates{
+.rates {
     margin: 2rem 0;
     text-align: center;
-   
 }
 
-.rates hr{
+.rates hr {
     width: 50%;
     margin: 0 auto;
 }
 
-.rates span{
+.rates span {
     display: grid;
     grid-template-columns: 75% 10% 15%;
-    text-align: left;    
+    text-align: left;
 }
 
-.rates span p{
-    margin: auto 0;   
+.rates span p {
+    margin: auto 0;
     padding: 5px;
 }
 
-.span-rates{
+.span-rates {
     width: fit-content;
     margin: 2rem auto;
 }
 
-.span-rates hr{
+.span-rates hr {
     width: 100%;
 }
 
-.chart-section{
+.chart-section {
     margin: 2rem 1rem;
     padding: 1rem;
 }
 
-.chart-section .chart{
+.chart-section .chart {
     width: 80%;
     margin: 2rem auto;
 }
 
-
-@media screen and (max-width: 550px) { 
-    
-    .rates span{
+@media screen and (max-width: 550px) {
+    .rates span {
         display: flex;
         flex-direction: column;
-        text-align: left; 
-        margin-left: 0.5rem;   
+        text-align: left;
+        margin-left: 0.5rem;
     }
 
-    .chart-section{
+    .chart-section {
         margin: 2rem 0rem;
         padding: 1rem 0;
     }
-    
-    .chart-section .chart{
+
+    .chart-section .chart {
         width: 80%;
         margin: 2rem auto;
     }
-    
-
 }
