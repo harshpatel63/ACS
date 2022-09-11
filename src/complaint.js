@@ -1,19 +1,6 @@
-export const complaintAddress = "0xEE572c8aDC7e7966421EE173d7893EEa3c795aC7";
+export const complaintAddress = "0x67Fa87e39f83b1d46c1D3BdfA7c04124cE3c733A";
 
 export const complaintAbi = [
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "id",
-				"type": "uint256"
-			}
-		],
-		"name": "ComplaintCreated",
-		"type": "event"
-	},
 	{
 		"inputs": [
 			{
@@ -74,6 +61,19 @@ export const complaintAbi = [
 		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			}
+		],
+		"name": "ComplaintCreated",
+		"type": "event"
 	},
 	{
 		"inputs": [],

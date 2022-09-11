@@ -28,7 +28,8 @@ contract ComplaintContract {
         string[] imageHash;
     }
 
-    function getComplaintsList() public restricted view returns (Complaint[] memory) {
+    function getComplaintsList() public view returns (Complaint[] memory) {
+        require(msg.sender == admin,"This function can only be called by the admin");
         Complaint[] memory ret = new Complaint[](complaintCount+1);
         for (uint i = 0; i <= complaintCount; i++) {
             ret[i] = ComplaintMap[i];
@@ -63,7 +64,7 @@ contract ComplaintContract {
         return admin;
     }
 
-        modifier restricted() {
+    modifier restricted() {
         require(msg.sender == admin,"This function can only be called by the admin");
         _;
     }
