@@ -59,7 +59,7 @@
     margin-top: 1.3rem;
     margin-bottom: 1.3rem;
 }
-p {
+.card-title p {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
