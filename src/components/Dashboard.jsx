@@ -247,8 +247,9 @@ function Dashboard() {
                     <span class="alert alert-success">Safety Index: 55.56</span>
                 </div>
                 <div className="rates">
-                    <h2>Crime Rates in Goa</h2>
-                    <hr />
+                    <div className="section-title">
+                        <h2>Crime Rates in Goa</h2>
+                    </div>
                     <div className="span-rates">
                         <span>
                             <p>Level of crime</p>
@@ -342,8 +343,9 @@ function Dashboard() {
                 </div>
 
                 <div className="rates">
-                    <h2>Safety in Goa</h2>
-                    <hr />
+                    <div className="section-title">
+                        <h2>Safety in Goa</h2>
+                    </div>
                     <div className="span-rates">
                         <span>
                             <p>Safety walking alone during daylight</p>
@@ -367,6 +369,9 @@ function Dashboard() {
                     <div className="chart" style={{ width: "100%" }}>
                         <canvas id="myChart2" width="400" height="400"></canvas>
                     </div>
+                </div>
+                <div className="section-title">
+                    <h2>Hotspot Areas</h2>
                 </div>
                 <div
                     id="map2"
