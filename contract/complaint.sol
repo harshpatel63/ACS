@@ -5,10 +5,15 @@ contract ComplaintContract {
     uint complaintCount = 0;
 
     mapping(uint => Complaint) ComplaintMap;
+    address payable private admin;
 
     event ComplaintCreated(
         uint id
     );
+
+    constructor() {
+        admin = payable(address(msg.sender));
+    }
 
     struct Complaint {
         uint id;
@@ -23,7 +28,7 @@ contract ComplaintContract {
         string[] imageHash;
     }
 
-    function getComplaintsList() public view returns (Complaint[] memory) {
+    function getComplaintsList() public restricted view returns (Complaint[] memory) {
         Complaint[] memory ret = new Complaint[](complaintCount+1);
         for (uint i = 0; i <= complaintCount; i++) {
             ret[i] = ComplaintMap[i];
@@ -47,6 +52,20 @@ contract ComplaintContract {
         ComplaintMap[complaintCount].description = description;
         ComplaintMap[complaintCount].imageHash = imageHash;
         emit ComplaintCreated(complaintCount);
+    }
+
+    //Admin related calls
+    function changeAdmin(address newAdmin) public restricted {
+        admin = payable(newAdmin);
+    }
+
+    function getAdmin() public view returns (address){
+        return admin;
+    }
+
+        modifier restricted() {
+        require(msg.sender == admin,"This function can only be called by the admin");
+        _;
     }
 
 }

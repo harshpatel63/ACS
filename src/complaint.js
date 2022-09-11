@@ -1,4 +1,4 @@
-export const complaintAddress = "0xF5646342c3b5778bCAcA252d4Ee0316fC7fac6C1";
+export const complaintAddress = "0xEE572c8aDC7e7966421EE173d7893EEa3c795aC7";
 
 export const complaintAbi = [
 	{
@@ -13,6 +13,19 @@ export const complaintAbi = [
 		],
 		"name": "ComplaintCreated",
 		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newAdmin",
+				"type": "address"
+			}
+		],
+		"name": "changeAdmin",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
 		"inputs": [
@@ -55,6 +68,89 @@ export const complaintAbi = [
 		"name": "createComplaint",
 		"outputs": [],
 		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [],
+		"name": "getAdmin",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getComplaintsList",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "title",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "location",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "dateOfIncident",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeOfReporting",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "category",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint8",
+						"name": "status",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"internalType": "string[]",
+						"name": "imageHash",
+						"type": "string[]"
+					}
+				],
+				"internalType": "struct ComplaintContract.Complaint[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -123,71 +219,6 @@ export const complaintAbi = [
 				"internalType": "struct ComplaintContract.Complaint",
 				"name": "",
 				"type": "tuple"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "getComplaintsList",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "uint256",
-						"name": "id",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "name",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "title",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "location",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "dateOfIncident",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "timeOfReporting",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint8",
-						"name": "category",
-						"type": "uint8"
-					},
-					{
-						"internalType": "uint8",
-						"name": "status",
-						"type": "uint8"
-					},
-					{
-						"internalType": "string",
-						"name": "description",
-						"type": "string"
-					},
-					{
-						"internalType": "string[]",
-						"name": "imageHash",
-						"type": "string[]"
-					}
-				],
-				"internalType": "struct ComplaintContract.Complaint[]",
-				"name": "",
-				"type": "tuple[]"
 			}
 		],
 		"stateMutability": "view",
