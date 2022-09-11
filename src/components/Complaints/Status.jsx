@@ -79,7 +79,6 @@ function Status() {
                     </div>
                     <a
                         className={"btn " + COMPLAINT_STATUS.completed}
-                        href="#review-area"
                         style={{ padding: "10px 20px", margin: "20px" }}
                     >
                         Completed
