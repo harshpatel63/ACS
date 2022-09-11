@@ -8,41 +8,67 @@ const COMPLAINT_STATUS = {
 };
 
 function Status() {
+    let map = undefined,
+        marker;
+    let category = [
+        "Drugs",
+        "Robbery",
+        "Kidnapping",
+        "Murder",
+        "Rape",
+        "Others",
+    ];
     let [complaintID, setcomplaintID] = useState("");
     let [complaint, setComplaint] = useState({
         name: "",
         title: "",
-        location: "",
+        location: "0,0",
         date: "",
         category: "",
         description: "",
     });
     useEffect(() => {
-        var map = window.L.map("map").setView([15.2993, 74.124], 10);
+        map = window.L.map("map");
         window.L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
             maxZoom: 19,
             attribution: "© OpenStreetMap",
         }).addTo(map);
-        window.L.marker([15.412557520307072, 73.97804775322604])
+        window.marker = window.L.marker([1000, 1000])
             .addTo(map)
             .bindPopup("Location of the complaint")
             .openPopup();
-        window.L.marker([15.412557520307072, 73.97804775322604], {
-            title: "NITG",
-        }).addTo(map);
+        map.setView([15.412557, 73.97804], 10);
     }, []);
+
+    useEffect(() => {
+        try {
+            console.log(complaint.location);
+            let [lat, long] = complaint.location.split(",");
+
+            if (complaint.location !== "0,0") {
+                window.marker
+                    .setLatLng([parseInt(lat), parseInt(long)], {
+                        title: "NITG",
+                    })
+                    .update();
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }, [complaint.location]);
     async function fetchComplaintStatus() {
         try {
+            let actualComplaintID = parseInt(complaintID.split("x")[0]);
             let x = await window.complaintContract.methods
-                .getComplaintStatus(parseInt(complaintID))
+                .getComplaintStatus(actualComplaintID)
                 .call();
             console.log(x, setComplaint);
             setComplaint({
                 name: x[1],
                 title: x[2],
-                location: x[3].split(","),
+                location: x[3],
                 date: x[4],
-                category: x[6],
+                category: category[parseInt(x[6])],
                 status: x[7],
                 description: x[8],
             });
@@ -50,6 +76,9 @@ function Status() {
             alert(e.message + " Please Try again..");
             return;
         }
+
+        /* Map*/
+        setTimeout(() => {}, 2000);
     }
 
     function SearchComplaint() {
@@ -81,47 +110,54 @@ function Status() {
     return (
         <section className="section-full">
             {SearchComplaint(setcomplaintID)}
-
-            <div className="fetch container-center">
-                <div className="section-title">
-                    <h2>Fetched Complaint</h2>
-                </div>
-                <div className="complaint-details">
-                    <div className="complaints-details__title">
-                        <div className="complaints-details__title__name">
-                            {complaint.name}
+            <div className="complaint-details">
+                {complaint && complaint.name === "" ? (
+                    ""
+                ) : (
+                    <div className="fetch container-center">
+                        <div className="section-title">
+                            <h2>Fetched Complaint</h2>
                         </div>
-                        <div className="complaints-details__title__right">
-                            <div
-                                className="complaints-details__title__cfl noselect"
-                                style={{ background: "#e40808" }}
-                            >
-                                {complaint.category}
+                        <div className="complaints-details__title">
+                            <div className="complaints-details__title__name">
+                                {complaint.name}
                             </div>
+                            <div className="complaints-details__title__right">
+                                <div
+                                    className="complaints-details__title__cfl noselect"
+                                    style={{ background: "#e40808" }}
+                                >
+                                    {complaint.category}
+                                </div>
 
-                            <div className="complaints-details__title__cfl noselect">
-                                Confidence Level: 90%
+                                <div className="complaints-details__title__cfl noselect">
+                                    Confidence Level: 90%
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="complaints-details__body">
-                        <div className="complaints-details__body__complaint-title">
-                            <h2>{complaint.title}</h2>
-                            <h4>(Date Filed: {complaint.date})</h4>
+                        <div className="complaints-details__body">
+                            <div className="complaints-details__body__complaint-title">
+                                <h2>{complaint.title}</h2>
+                                <h4>(Date Filed: {complaint.date})</h4>
+                            </div>
+                            <p>{complaint.description}</p>
                         </div>
-                        <p>{complaint.description}</p>
+                        <a
+                            className={"btn " + COMPLAINT_STATUS.completed}
+                            style={{ padding: "10px 20px", margin: "20px" }}
+                        >
+                            Completed
+                        </a>
                     </div>
-                    <a
-                        className={"btn " + COMPLAINT_STATUS.completed}
-                        style={{ padding: "10px 20px", margin: "20px" }}
-                    >
-                        Completed
-                    </a>
-                    <div
-                        id="map"
-                        style={{ height: "500px", width: "100%", zIndex: "1" }}
-                    ></div>
-                </div>
+                )}
+                <div
+                    id="map"
+                    style={{
+                        height: "500px",
+                        width: "100%",
+                        zIndex: "1",
+                    }}
+                ></div>
             </div>
         </section>
     );

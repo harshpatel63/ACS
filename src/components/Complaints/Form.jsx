@@ -51,7 +51,8 @@ function Form() {
             updateData("name", window.MetaMaskAccount);
         }, 2000);
     }, []);
-    function blahblah() {
+
+    function autoCopy() {
         var copyTextarea = document.querySelector(".complaint-id");
         copyTextarea.focus();
         copyTextarea.select();
@@ -76,7 +77,7 @@ function Form() {
                             <input
                                 className="complaint-id"
                                 value={complaintID}
-                                onClick={blahblah}
+                                onClick={autoCopy}
                             />
                             <br />
                             <h6>(click to copy)</h6>
