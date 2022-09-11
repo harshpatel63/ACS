@@ -23,13 +23,11 @@
 }
 
 .section-title {
-    margin-bottom: 70px;
     text-align: center;
 }
 .section-title h2 {
     position: relative;
     margin-top: 10px;
-    margin-bottom: 15px;
     padding-bottom: 15px;
 }
 .section-title h2::after {

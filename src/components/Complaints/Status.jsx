@@ -4,14 +4,17 @@ import "./css/Status.css";
 import { LoadingSpinner } from "../Admin/AdminPortal";
 
 const COMPLAINT_STATUS = {
-    pending: "btn-warning",
-    inProgress: "btn-danger",
-    completed: "btn-success",
+    PENDING: { clss: "btn-warning", text: "Pending" },
+    INPROG: { clss: "btn-danger", text: "In Progress" },
+    COMPLETED: { clss: "btn-success", text: "Completed" },
 };
 
 function Status() {
     let [loading, setLoading] = useState(true);
     let [confidencelevel, setconfindencelevel] = useState("--");
+    let [thiscomplaintstatus, setthiscomplaintstatus] = useState(
+        COMPLAINT_STATUS.PENDING
+    );
     let { id } = useParams();
     let map = undefined;
     let category = [
@@ -97,6 +100,17 @@ function Status() {
                 status: x[7],
                 description: x[8],
             });
+            switch (x[7]) {
+                case "0":
+                    setthiscomplaintstatus(COMPLAINT_STATUS.PENDING);
+                    break;
+                case "1":
+                    setthiscomplaintstatus(COMPLAINT_STATUS.INPROG);
+                    break;
+                case "2":
+                    setthiscomplaintstatus(COMPLAINT_STATUS.COMPLETED);
+                    break;
+            }
             setLoading(false);
         } catch (e) {
             alert(e.message + " Please Try again..");
@@ -166,13 +180,13 @@ function Status() {
                                 <p>{complaint.description}</p>
                             </div>
                             <a
-                                className={"btn " + COMPLAINT_STATUS.completed}
+                                className={"btn " + thiscomplaintstatus.clss}
                                 style={{
                                     padding: "10px 20px",
                                     margin: "20px",
                                 }}
                             >
-                                Completed
+                                {thiscomplaintstatus.text}
                             </a>
                         </div>
                     )}

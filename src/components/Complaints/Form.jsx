@@ -68,7 +68,7 @@ function Form() {
     return (
         <section className="section-full">
             {complaintID !== undefined && (
-                <div className="dashboard-parent-container">
+                <div className="complaintdashboard-parent-container">
                     <div className="complaintcard-outer-box">
                         <span className="complaint-box">
                             <div className="complaint-title">
@@ -86,160 +86,227 @@ function Form() {
                 </div>
             )}
             <div className="container-center">
-                <span className="sub-form-title">
-                    <h3 style={{ padding: "0" }}>Your Details</h3>
-                </span>
-                <div className="mb-3">
-                    <label
-                        htmlFor="exampleFormControlInput1"
-                        className="form-label"
-                    >
-                        Your Name (default)
-                    </label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="exampleFormControlInput1"
-                        placeholder={
-                            formData.name === "" ? "Loading..." : formData.name
-                        }
-                        disabled
-                    />
-                </div>
-
-                <span className="sub-form-title">
-                    <h3>Incident Details</h3>
-                </span>
-                <div className="mb-3">
-                    <label
-                        htmlFor="exampleFormControlInput1"
-                        className="form-label"
-                    >
-                        Title
-                    </label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="exampleFormControlInput1"
-                        placeholder="Subject of the complaint"
-                        onChange={(evt) =>
-                            updateData("title", evt.target.value)
-                        }
-                    />
-                </div>
-                <div className="mb-3">
-                    <label
-                        htmlFor="exampleFormControlInput1"
-                        className="form-label"
-                    >
-                        Location
-                    </label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="exampleFormControlInput1"
-                        placeholder="lat, long"
-                        onChange={(evt) =>
-                            updateData("location", evt.target.value)
-                        }
-                    />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="date" className=" col-form-label">
-                        Select Date: &nbsp;
-                    </label>
-                    <input
-                        type="date"
-                        id="birthday"
-                        name="birthday"
-                        onChange={(evt) => updateData("date", evt.target.value)}
-                    />
-                </div>
-
-                <div className="mb-3">
-                    <label
-                        htmlFor="exampleFormControlInput1"
-                        className="form-label"
-                    >
-                        Complaint Category
-                    </label>
-                    <div className="radio-buttons">{renderRadioButtons()}</div>
-                </div>
-                <div className="file-upload">
-                    <label htmlFor="exampleFormControlInput1">
-                        Upload Image
-                    </label>
-                    <br />
-                    <input type="file" id="browse-file" multiple />
-                </div>
-                <div className="mb-3">
-                    <label
-                        htmlFor="exampleFormControlTextarea1"
-                        className="form-label"
-                    >
-                        Please describe the incident in Detail
-                    </label>
-                    <textarea
-                        className="form-control"
-                        id="exampleFormControlTextarea1"
-                        rows="3"
-                        onChange={(evt) =>
-                            updateData("description", evt.target.value)
-                        }
-                    ></textarea>
-                </div>
-                <button
-                    type="submit"
-                    className={
-                        "btn btn-primary " +
-                        (reviewStatus !== SUBMIT_STATUS.STOPPED
-                            ? "disabled"
-                            : "")
-                    }
-                    onClick={(evt) => {
-                        handleSubmit(evt);
+                <div
+                    className="complaint-form"
+                    style={{
+                        width: "100%",
+                        maxWidth: "600px",
+                        padding: "20px",
                     }}
                 >
-                    {reviewStatus == SUBMIT_STATUS.STOPPED && "Submit"}
-                    {reviewStatus == SUBMIT_STATUS.RUNNING && (
-                        <>
-                            <span
-                                style={{
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                }}
-                            >
-                                Submitting&nbsp;&nbsp;&nbsp;
-                                <div
-                                    className="spinner-border"
-                                    role="status"
+                    <span className="sub-form-title">
+                        <div className="section-title">
+                            <h2>Your Details</h2>
+                        </div>
+                    </span>
+                    <div className="mb-3">
+                        <label
+                            htmlFor="exampleFormControlInput1"
+                            className="form-label"
+                        >
+                            <h5>Your Name (default)</h5>
+                        </label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="exampleFormControlInput1"
+                            placeholder={
+                                formData.name === ""
+                                    ? "Loading..."
+                                    : formData.name
+                            }
+                            disabled
+                        />
+                    </div>
+
+                    <span className="sub-form-title">
+                        <div className="section-title">
+                            <h2>Incident Details</h2>
+                        </div>
+                    </span>
+                    <div className="mb-3">
+                        <label
+                            htmlFor="exampleFormControlInput1"
+                            className="form-label"
+                        >
+                            <h5>Title</h5>
+                        </label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="exampleFormControlInput1"
+                            placeholder="Subject of the complaint"
+                            onChange={(evt) =>
+                                updateData("title", evt.target.value)
+                            }
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label
+                            htmlFor="exampleFormControlInput1"
+                            className="form-label"
+                        >
+                            <h5>Location</h5>
+                        </label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="exampleFormControlInput1"
+                            placeholder="lat, long"
+                            onChange={(evt) =>
+                                updateData("location", evt.target.value)
+                            }
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="date" className=" col-form-label">
+                            <h5>Select Date: &nbsp;</h5>
+                        </label>
+                        <input
+                            type="date"
+                            id="birthday"
+                            name="birthday"
+                            onChange={(evt) =>
+                                updateData("date", evt.target.value)
+                            }
+                        />
+                    </div>
+
+                    <div className="mb-3">
+                        <label
+                            htmlFor="exampleFormControlInput1"
+                            className="form-label"
+                        >
+                            <h5>Complaint Category</h5>
+                        </label>
+                        <div className="radio-buttons">
+                            {renderRadioButtons()}
+                        </div>
+                    </div>
+                    <div className="file-upload">
+                        <label htmlFor="exampleFormControlInput1">
+                            <h5>Upload Image (optional)</h5>
+                        </label>
+                        <br />
+                        <input type="file" id="browse-file" multiple />
+                    </div>
+                    <div className="mb-3">
+                        <label
+                            htmlFor="exampleFormControlTextarea1"
+                            className="form-label"
+                        >
+                            <h5>Please describe the incident in Detail</h5>
+                        </label>
+                        <textarea
+                            className="form-control"
+                            id="exampleFormControlTextarea1"
+                            rows="3"
+                            onChange={(evt) =>
+                                updateData("description", evt.target.value)
+                            }
+                        ></textarea>
+                    </div>
+                    <button
+                        type="submit"
+                        className={
+                            "btn btn-primary " +
+                            (reviewStatus !== SUBMIT_STATUS.STOPPED
+                                ? "disabled"
+                                : "")
+                        }
+                        onClick={(evt) => {
+                            handleSubmit(evt);
+                        }}
+                    >
+                        {reviewStatus == SUBMIT_STATUS.STOPPED && "Submit"}
+                        {reviewStatus == SUBMIT_STATUS.RUNNING && (
+                            <>
+                                <span
                                     style={{
-                                        height: "15px",
-                                        width: "15px",
-                                        fontSize: "10px",
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
                                     }}
                                 >
-                                    <span className="visually-hidden">
-                                        Loading...
-                                    </span>
-                                </div>
-                            </span>
-                        </>
-                    )}
+                                    Submitting&nbsp;&nbsp;&nbsp;
+                                    <div
+                                        className="spinner-border"
+                                        role="status"
+                                        style={{
+                                            height: "15px",
+                                            width: "15px",
+                                            fontSize: "10px",
+                                        }}
+                                    >
+                                        <span className="visually-hidden">
+                                            Loading...
+                                        </span>
+                                    </div>
+                                </span>
+                            </>
+                        )}
 
-                    {reviewStatus == SUBMIT_STATUS.FINISHED && (
-                        <span>Submitted</span>
-                    )}
+                        {reviewStatus == SUBMIT_STATUS.FINISHED && (
+                            <span>Submitted</span>
+                        )}
 
-                    {reviewStatus == SUBMIT_STATUS.UPLOADING && (
-                        <span>Uploading Files</span>
-                    )}
-                </button>
+                        {reviewStatus == SUBMIT_STATUS.UPLOADING && (
+                            <span>Uploading Files</span>
+                        )}
+                    </button>
+                </div>
             </div>
         </section>
     );
-    function checkForm() {}
+    function checkForm() {
+        if (formData.title.length === 0) {
+            alert("Title is empty");
+            return false;
+        }
+        console.log(formData);
+
+        if (formData.date === "") {
+            alert("Date is empty");
+            return false;
+        }
+        if (formData.category === "") {
+            alert("Please Select the Category");
+            return false;
+        }
+        if (formData.description === "") {
+            alert("Description is empty");
+            return false;
+        }
+        if (formData.location.split(",").length === 2) {
+            let [lat, long] = formData.location.split(",");
+            lat = parseFloat(lat);
+            long = parseFloat(long);
+            if (lat == NaN || long == NaN) return false;
+            /*
+            if(15.804206786179925, 73.87422231517183)
+15.414648991515763, 74.27578885992173
+14.989226288455015, 74.10992441752504
+15.288375577751793, 73.9062312426519
+
+            */
+            if (
+                lat >= 14.989226288455 &&
+                lat <= 15.8042067861 &&
+                long >= 73.9062312426519 &&
+                long <= 74.27578885992173
+            )
+                return true;
+            else {
+                console.log(lat, long);
+                alert("Range Out of Goa");
+                return false;
+            }
+        } else {
+            alert("Location is invalid");
+            return false;
+        }
+        return true;
+    }
     async function handleSubmit(e) {
         e.preventDefault();
         if (checkForm() == false) return;

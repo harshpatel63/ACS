@@ -15,8 +15,6 @@ function AdminPortal() {
             alert(e.message + " Please Try again..");
             return;
         }
-
-        /* Map*/
     }
 
     useEffect(() => {
@@ -24,6 +22,20 @@ function AdminPortal() {
             fetchComplaints();
         }, 2000);
     }, []);
+    async function changeStatus(cid, status) {
+        console.log(cid, status);
+        try {
+            let x = await window.complaintContract.methods
+                .changeStatus(cid, status)
+                .send({
+                    from: window.MetaMaskAccount,
+                });
+            console.log(x);
+        } catch (e) {
+            alert(e.message + " Please Try again..");
+            return;
+        }
+    }
     return (
         <div className="section-full">
             <div className="container-center section work" id="work">
@@ -76,44 +88,81 @@ function AdminPortal() {
                                 description: each[8],
                             };
                             return (
-                                <Link
-                                    to={
-                                        "/status/" +
-                                        complaintList.findIndex(
-                                            (ele) => ele === each
-                                        ) +
-                                        (thiscomplaint.name &&
-                                            thiscomplaint.name.slice(1))
-                                    }
-                                    target="_blank"
-                                    style={{
-                                        textDecoration: "none",
-                                        color: "black",
-                                    }}
-                                >
-                                    <div class="work-card">
-                                        <h1>{thiscomplaint.title}</h1>
-                                        <p>{thiscomplaint.description}</p>
-                                        <div class="card-buttons">
+                                <div class="work-card">
+                                    <h1>{thiscomplaint.title}</h1>
+                                    <p>{thiscomplaint.description}</p>
+                                    <h6>Status: Pending</h6>
+                                    <div class="card-buttons">
+                                        <Link
+                                            to={
+                                                "/status/" +
+                                                complaintList.findIndex(
+                                                    (ele) => ele === each
+                                                ) +
+                                                (thiscomplaint.name &&
+                                                    thiscomplaint.name.slice(1))
+                                            }
+                                            target="_blank"
+                                            style={{
+                                                textDecoration: "none",
+                                                color: "black",
+                                            }}
+                                        >
                                             <button
                                                 className="btn btn-primary"
                                                 href=""
                                                 target="_blank"
                                             >
-                                                View Details
+                                                <i class="fa-solid fa-eye"></i>
+                                                &nbsp; View Details
                                             </button>
-                                        </div>
+                                        </Link>
                                     </div>
-                                </Link>
+                                    <div class="card-buttons">
+                                        <button
+                                            className="btn btn-warning"
+                                            href=""
+                                            target="_blank"
+                                            onClick={() =>
+                                                changeStatus(
+                                                    complaintList.findIndex(
+                                                        (ele) => ele === each
+                                                    ),
+                                                    1
+                                                )
+                                            }
+                                        >
+                                            <i class="fa-solid fa-triangle-exclamation"></i>
+                                            &nbsp; Start Action
+                                        </button>
+                                    </div>
+
+                                    <button
+                                        className="btn btn-success"
+                                        href=""
+                                        target="_blank"
+                                        onClick={() =>
+                                            changeStatus(
+                                                complaintList.findIndex(
+                                                    (ele) => ele === each
+                                                ),
+                                                2
+                                            )
+                                        }
+                                    >
+                                        <i class="fa-solid fa-check"></i>
+                                        &nbsp;Mark Done
+                                    </button>
+                                </div>
                             );
                         })
                     )}
                 </div>
-                <h1>
+                {/* <h1>
                     <a href="./work.html" target="_blank">
                         Check More
                     </a>
-                </h1>
+                </h1> */}
             </div>
         </div>
     );
