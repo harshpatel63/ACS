@@ -243,8 +243,12 @@ function Dashboard() {
                     </span>
                 </div>
                 <div className="index-score">
-                    <span class="alert alert-danger">Crime Index: 44.44</span>
-                    <span class="alert alert-success">Safety Index: 55.56</span>
+                    <span className="alert alert-danger">
+                        Crime Index: 44.44
+                    </span>
+                    <span className="alert alert-success">
+                        Safety Index: 55.56
+                    </span>
                 </div>
                 <div className="rates">
                     <div className="section-title">

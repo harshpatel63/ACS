@@ -59,9 +59,11 @@ function AdminPortal() {
                         <div className="score">12</div>
                     </span>
                 </div>
-
+                <div className="section-title">
+                    <h2>All Complaints</h2>
+                </div>
                 <div
-                    class="cards"
+                    className="cards"
                     style={{
                         width: "100%",
                         display: "flex",
@@ -86,41 +88,81 @@ function AdminPortal() {
                                 name: each[1],
                                 title: each[2],
                                 description: each[8],
+                                image:
+                                    each[9].length > 0
+                                        ? each[9][0]
+                                        : "https://picsum.photos/550/400",
                             };
+                            console.log(each[9]);
                             return (
-                                <div class="work-card">
-                                    <h1>{thiscomplaint.title}</h1>
-                                    <p>{thiscomplaint.description}</p>
-                                    <h6>Status: Pending</h6>
-                                    <div class="card-buttons">
-                                        <Link
-                                            to={
-                                                "/status/" +
-                                                complaintList.findIndex(
-                                                    (ele) => ele === each
-                                                ) +
-                                                (thiscomplaint.name &&
-                                                    thiscomplaint.name.slice(1))
-                                            }
-                                            target="_blank"
-                                            style={{
-                                                textDecoration: "none",
-                                                color: "black",
-                                            }}
-                                        >
+                                <div
+                                    className="card"
+                                    style={{
+                                        maxWidth: "400px",
+                                        margin: "10px",
+                                    }}
+                                >
+                                    <img
+                                        className="card-img-top"
+                                        src={thiscomplaint.image}
+                                        alt="Card image cap"
+                                    />
+                                    <div className="card-body">
+                                        <h5 className="card-title">
+                                            {thiscomplaint.title}
+                                        </h5>
+                                        <p>{thiscomplaint.description}</p>
+                                        <h6>Status: Pending</h6>
+                                        <div className="card-buttons">
+                                            <Link
+                                                to={
+                                                    "/status/" +
+                                                    complaintList.findIndex(
+                                                        (ele) => ele === each
+                                                    ) +
+                                                    (thiscomplaint.name &&
+                                                        thiscomplaint.name.slice(
+                                                            1
+                                                        ))
+                                                }
+                                                target="_blank"
+                                                style={{
+                                                    textDecoration: "none",
+                                                    color: "black",
+                                                }}
+                                            >
+                                                <button
+                                                    className="btn btn-primary"
+                                                    href=""
+                                                    target="_blank"
+                                                >
+                                                    <i className="fa-solid fa-eye"></i>
+                                                    &nbsp; View Details
+                                                </button>
+                                            </Link>
+                                        </div>
+                                        <div className="card-buttons">
                                             <button
-                                                className="btn btn-primary"
+                                                className="btn btn-warning"
                                                 href=""
                                                 target="_blank"
+                                                onClick={() =>
+                                                    changeStatus(
+                                                        complaintList.findIndex(
+                                                            (ele) =>
+                                                                ele === each
+                                                        ),
+                                                        1
+                                                    )
+                                                }
                                             >
-                                                <i class="fa-solid fa-eye"></i>
-                                                &nbsp; View Details
+                                                <i className="fa-solid fa-triangle-exclamation"></i>
+                                                &nbsp; Start Action
                                             </button>
-                                        </Link>
-                                    </div>
-                                    <div class="card-buttons">
+                                        </div>
+
                                         <button
-                                            className="btn btn-warning"
+                                            className="btn btn-success"
                                             href=""
                                             target="_blank"
                                             onClick={() =>
@@ -128,31 +170,14 @@ function AdminPortal() {
                                                     complaintList.findIndex(
                                                         (ele) => ele === each
                                                     ),
-                                                    1
+                                                    2
                                                 )
                                             }
                                         >
-                                            <i class="fa-solid fa-triangle-exclamation"></i>
-                                            &nbsp; Start Action
+                                            <i className="fa-solid fa-check"></i>
+                                            &nbsp;Mark Done
                                         </button>
                                     </div>
-
-                                    <button
-                                        className="btn btn-success"
-                                        href=""
-                                        target="_blank"
-                                        onClick={() =>
-                                            changeStatus(
-                                                complaintList.findIndex(
-                                                    (ele) => ele === each
-                                                ),
-                                                2
-                                            )
-                                        }
-                                    >
-                                        <i class="fa-solid fa-check"></i>
-                                        &nbsp;Mark Done
-                                    </button>
                                 </div>
                             );
                         })
