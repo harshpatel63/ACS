@@ -63,6 +63,10 @@ contract ComplaintContract {
         return admin;
     }
 
+    function changeStatus(uint cId, uint8 status) public restricted {
+        ComplaintMap[cId].status = status;
+    }
+
     modifier restricted() {
         require(msg.sender == admin,"This function can only be called by the admin");
         _;
