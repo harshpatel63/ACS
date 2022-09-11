@@ -1,0 +1,136 @@
+.section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.scorecard-outer-box{
+    width: 70%;
+    margin: 3rem auto;
+    padding: 1rem;
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.score-box{
+    display: inline;
+    text-align: center;
+}
+
+.score-title{
+    font-size: 20px;
+}
+
+.score{
+    font-size: 30px;
+}
+
+.work{
+    display: block;
+    padding: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.work h1{
+    font-size: 2.5rem;
+}
+
+.work h1 a{
+    color: black;
+    font-size: 2rem;
+    text-decoration: none;
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;    
+}
+
+.work h1 a:hover{
+    box-shadow: inset 0rem 0rem 0.8rem cyan;
+    color: gray;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin-top: 1.3rem;
+    margin-bottom: 1.3rem;
+}
+
+.work-card{
+    display: grid;
+    padding: 1rem;
+    margin: 0.7rem;
+    border: 1px solid gray;
+    border-radius: 1rem;
+    justify-content: space-evenly;
+}
+
+.work-card h1{
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.work-card p{
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+}
+
+.card-buttons{
+    margin-top: 1rem;
+    padding: 0.5rem;
+}
+
+.card-buttons a{
+    color: gray;
+    text-decoration: none;
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+    margin: 0 0.2rem;
+    padding: 0.4rem;
+    font-size: 1.2rem;
+}
+
+.card-buttons a:hover{
+    box-shadow: inset 0rem 0rem 0.5rem cyan;
+}
+
+
+@media only screen and (max-width: 700px){
+
+    .scorecard-outer-box{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    
+    .score-box{
+        margin: 0.5rem 0;
+    }
+    
+    .score-title{
+        font-size: 20px;
+    }
+    
+    .score{
+        font-size: 30px;
+    }
+
+
+    .cards{
+        display: grid;
+        grid-template-columns: auto;        
+    }
+
+    .work h1{
+        font-size: 2rem;
+    }
+    
+    .work-card h1{
+        font-size: 1.8rem;
+    }
+}

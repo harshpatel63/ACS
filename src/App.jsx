@@ -18,7 +18,7 @@ function App() {
                     <Route path="/form" element={<Form />} />
                     <Route path="/status" element={<Status />} />
                     <Route path="/about" element={<About />} />
-                    <Route path="/dashboard" element={<AdminPortal />} />
+                    <Route path="/admin" element={<AdminPortal />} />
                 </Routes>
             </Router>
             <Footer />

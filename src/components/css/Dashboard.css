@@ -1,0 +1,28 @@
+.dashboard-parent-container{
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 50vh;
+    padding-top: 2rem;
+}
+
+.scorecard-outer-box{
+    width: 60%;
+    margin: 0rem auto;
+    padding: 1rem;
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.score-box{
+    display: inline;
+    text-align: center;
+}
+
+.score-title{
+    font-size: 20px;
+}
+
+.score{
+    font-size: 30px;
+}
