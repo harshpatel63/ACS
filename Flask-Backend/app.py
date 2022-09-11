@@ -5,8 +5,11 @@ import numpy as np
 import pandas as pd
 from sklearn import datasets, linear_model
 from sklearn import preprocessing
+from flask_cors import CORS, cross_origin
+
 
 app = Flask(__name__)
+cors = CORS(app)
 
 
 @app.route('/inputs/<uid1>/<uid2>/<uid3>', methods=['GET'])
