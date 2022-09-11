@@ -6,6 +6,7 @@ import Form from "./components/Complaints/Form";
 import Status from "./components/Complaints/Status";
 import About from "./components/About";
 import Footer from "./components/Footer";
+import AdminPortal from "./components/Admin/AdminPortal";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                     <Route path="/form" element={<Form />} />
                     <Route path="/status" element={<Status />} />
                     <Route path="/about" element={<About />} />
+                    <Route path="/dashboard" element={<AdminPortal />} />
                 </Routes>
             </Router>
             <Footer />
