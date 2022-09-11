@@ -9,9 +9,8 @@ function Footer() {
                     <div className="col-sm-3 about-div">
                         <h4 className="title">ACS</h4>
                         <p>
-                            Anonymous Complaint System, pull is always the right
-                            approach but one exception could be when you are
-                            trying to convert.
+                            File your complaint without disclosing your
+                            identity. Your Security Is Our Responsibility !
                         </p>
                     </div>
 
@@ -33,7 +32,7 @@ function Footer() {
                 </div>
                 <hr />
 
-                <div className="row text-center"> © 2022. Meta Health</div>
+                <div className="row text-center"> © 2022. ACS</div>
             </div>
         </footer>
     );

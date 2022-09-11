@@ -129,7 +129,16 @@ function Form() {
                             htmlFor="exampleFormControlInput1"
                             className="form-label"
                         >
-                            <h5>Title</h5>
+                            <h5>
+                                Title
+                                <span
+                                    style={{
+                                        color: "red",
+                                    }}
+                                >
+                                    *
+                                </span>
+                            </h5>
                         </label>
                         <input
                             type="text"
@@ -146,7 +155,16 @@ function Form() {
                             htmlFor="exampleFormControlInput1"
                             className="form-label"
                         >
-                            <h5>Location</h5>
+                            <h5>
+                                Location
+                                <span
+                                    style={{
+                                        color: "red",
+                                    }}
+                                >
+                                    *
+                                </span>
+                            </h5>
                         </label>
                         <input
                             type="text"
@@ -160,7 +178,19 @@ function Form() {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="date" className=" col-form-label">
-                            <h5>Select Date: &nbsp;</h5>
+                            <h5>
+                                Select Date:
+                                <span
+                                    style={{
+                                        color: "red",
+                                    }}
+                                >
+                                    *
+                                </span>
+                                &nbsp;&nbsp;
+                                <i className="fa-regular fa-calendar"></i>
+                                &nbsp;
+                            </h5>
                         </label>
                         <input
                             type="date"
@@ -177,7 +207,16 @@ function Form() {
                             htmlFor="exampleFormControlInput1"
                             className="form-label"
                         >
-                            <h5>Complaint Category</h5>
+                            <h5>
+                                Complaint Category
+                                <span
+                                    style={{
+                                        color: "red",
+                                    }}
+                                >
+                                    *
+                                </span>
+                            </h5>
                         </label>
                         <div className="radio-buttons">
                             {renderRadioButtons()}
@@ -195,7 +234,16 @@ function Form() {
                             htmlFor="exampleFormControlTextarea1"
                             className="form-label"
                         >
-                            <h5>Please describe the incident in Detail</h5>
+                            <h5>
+                                Please describe the incident in Detail
+                                <span
+                                    style={{
+                                        color: "red",
+                                    }}
+                                >
+                                    *
+                                </span>
+                            </h5>
                         </label>
                         <textarea
                             className="form-control"
@@ -292,7 +340,7 @@ function Form() {
             if (
                 lat >= 14.989226288455 &&
                 lat <= 15.8042067861 &&
-                long >= 73.9062312426519 &&
+                long >= 73.0062312426519 &&
                 long <= 74.27578885992173
             )
                 return true;

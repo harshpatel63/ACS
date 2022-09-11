@@ -59,25 +59,11 @@
     margin-top: 1.3rem;
     margin-bottom: 1.3rem;
 }
-
-.work-card {
-    display: grid;
-    padding: 1rem;
-    margin: 0.7rem;
-    border: 1px solid gray;
-    border-radius: 1rem;
-    justify-content: space-evenly;
-    /* max-width: 400px; */
-}
-
-.work-card h1 {
-    margin-bottom: 1rem;
-    font-size: 2rem;
-}
-
-.work-card p {
-    font-size: 1.2rem;
-    line-height: 1.4rem;
+.card-title p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 400px;
 }
 
 .card-buttons {

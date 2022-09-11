@@ -8,7 +8,7 @@
 
 .searchTerm {
     width: 100%;
-    border: 3px solid #00b4cc;
+    border: 3px solid #35404f;
     padding: 5px;
     height: 40px;
     border-radius: 5px 0 0 5px;
@@ -23,8 +23,8 @@
 .searchButton {
     padding: 4px 10px;
     height: 100%;
-    border: 1px solid #00b4cc;
-    background: #00b4cc;
+    border: 1px solid #35404f;
+    background: #35404f;
     text-align: center;
     color: #fff;
     border-radius: 0 5px 5px 0;

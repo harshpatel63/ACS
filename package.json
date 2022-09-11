@@ -15,6 +15,7 @@
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.3.0",
         "react-scripts": "4.0.3",
+        "serve": "^14.0.1",
         "solc": "^0.8.9",
         "stream": "^0.0.2",
         "truffle": "^5.4.26",
@@ -25,7 +26,7 @@
     },
     "scripts": {
         "start": "react-scripts start",
-        "build": "react-scripts build",
+        "build": "react-scripts build && rm docs -r && mv build docs",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
@@ -34,6 +35,10 @@
             "react-app",
             "react-app/jest"
         ]
+    },
+    "engines": {
+        "npm": ">=7.0.0",
+        "node": ">=16.0.0"
     },
     "browserslist": {
         "production": [
