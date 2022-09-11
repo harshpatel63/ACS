@@ -8,8 +8,7 @@ const COMPLAINT_STATUS = {
 };
 
 function Status() {
-    let map = undefined,
-        marker;
+    let map = undefined;
     let category = [
         "Drugs",
         "Robbery",
@@ -47,7 +46,7 @@ function Status() {
 
             if (complaint.location !== "0,0") {
                 window.marker
-                    .setLatLng([parseInt(lat), parseInt(long)], {
+                    .setLatLng([parseFloat(lat), parseFloat(long)], {
                         title: "NITG",
                     })
                     .update();
@@ -76,9 +75,6 @@ function Status() {
             alert(e.message + " Please Try again..");
             return;
         }
-
-        /* Map*/
-        setTimeout(() => {}, 2000);
     }
 
     function SearchComplaint() {
