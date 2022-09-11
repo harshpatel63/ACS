@@ -51,7 +51,8 @@ function Form() {
             updateData("name", window.MetaMaskAccount);
         }, 2000);
     }, []);
-    function blahblah() {
+
+    function autoCopy() {
         var copyTextarea = document.querySelector(".complaint-id");
         copyTextarea.focus();
         copyTextarea.select();
@@ -76,7 +77,7 @@ function Form() {
                             <input
                                 className="complaint-id"
                                 value={complaintID}
-                                onClick={blahblah}
+                                onClick={autoCopy}
                             />
                             <br />
                             <h6>(click to copy)</h6>
@@ -304,26 +305,27 @@ function Form() {
         return (
             <div onChange={setCategory.bind(this)}>
                 <label className="radio-buttons">
-                    <input type="radio" value="0" name="gender" /> &nbsp; Drugs
+                    <input type="radio" value="0" name="category" /> &nbsp;
+                    Drugs
                 </label>
                 <label className="radio-buttons">
-                    <input type="radio" value="1" name="gender" />
+                    <input type="radio" value="1" name="category" />
                     &nbsp; Robbery
                 </label>
                 <label className="radio-buttons">
-                    <input type="radio" value="2" name="gender" />
+                    <input type="radio" value="2" name="category" />
                     &nbsp; Kidnapping
                 </label>
                 <label className="radio-buttons">
-                    <input type="radio" value="3" name="gender" />
+                    <input type="radio" value="3" name="category" />
                     &nbsp; Murder
                 </label>
                 <label className="radio-buttons">
-                    <input type="radio" value="4" name="gender" />
+                    <input type="radio" value="4" name="category" />
                     &nbsp; Rape
                 </label>
                 <label className="radio-buttons">
-                    <input type="radio" value="5" name="gender" />
+                    <input type="radio" value="5" name="category" />
                     &nbsp; Others
                 </label>
             </div>
