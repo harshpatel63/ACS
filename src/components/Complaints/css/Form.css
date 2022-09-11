@@ -15,3 +15,27 @@
 .form-check {
     flex: 0.5;
 }
+
+.dashboard-parent-container {
+    padding-top: 2rem;
+}
+
+.complaintcard-outer-box {
+    padding: 1rem;
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+}
+
+.complaint-box {
+    display: inline;
+    text-align: center;
+}
+
+.complaint-title {
+    font-size: 20px;
+}
+
+.complaint {
+    font-size: 30px;
+}

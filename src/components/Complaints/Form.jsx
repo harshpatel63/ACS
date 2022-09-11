@@ -14,6 +14,7 @@ const SUBMIT_STATUS = {
 };
 
 function Form() {
+    let [complaintID, setcomplaintID] = useState(undefined);
     let [reviewStatus, setreviewStatus] = useState(SUBMIT_STATUS.STOPPED);
     let [formData, setformData] = useState({
         name: "",
@@ -50,8 +51,39 @@ function Form() {
             updateData("name", window.MetaMaskAccount);
         }, 2000);
     }, []);
+    function blahblah() {
+        var copyTextarea = document.querySelector(".complaint-id");
+        copyTextarea.focus();
+        copyTextarea.select();
+
+        try {
+            var successful = document.execCommand("copy");
+            var msg = successful ? "successful" : "unsuccessful";
+            console.log("Copying text command was " + msg);
+        } catch (err) {
+            console.log("Oops, unable to copy");
+        }
+    }
     return (
         <section className="section-full">
+            {complaintID !== undefined && (
+                <div className="dashboard-parent-container">
+                    <div className="complaintcard-outer-box">
+                        <span className="complaint-box">
+                            <div className="complaint-title">
+                                This is Your Complaint ID (please save it):
+                            </div>
+                            <input
+                                className="complaint-id"
+                                value={complaintID}
+                                onClick={blahblah}
+                            />
+                            <br />
+                            <h6>(click to copy)</h6>
+                        </span>
+                    </div>
+                </div>
+            )}
             <div className="container-center">
                 <span className="sub-form-title">
                     <h3 style={{ padding: "0" }}>Your Details</h3>
@@ -206,9 +238,10 @@ function Form() {
             </div>
         </section>
     );
+    function checkForm() {}
     async function handleSubmit(e) {
         e.preventDefault();
-        // if (checkForm() == false) return;
+        if (checkForm() == false) return;
         let browseHandlerFile = document.getElementById("browse-file");
         console.log(browseHandlerFile.files);
 
@@ -237,7 +270,7 @@ function Form() {
         setreviewStatus(SUBMIT_STATUS.RUNNING);
 
         try {
-            await window.complaintContract.methods
+            let x = await window.complaintContract.methods
                 .createComplaint(
                     formData.name,
                     formData.title,
@@ -250,6 +283,11 @@ function Form() {
                 .send({
                     from: window.MetaMaskAccount,
                 });
+            console.log(x);
+            setcomplaintID(
+                x.events.ComplaintCreated.returnValues.id +
+                    window.MetaMaskAccount.slice(1)
+            );
         } catch (e) {
             alert(e.message + " Please Try again..");
             setreviewStatus(SUBMIT_STATUS.STOPPED);

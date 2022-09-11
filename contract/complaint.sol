@@ -6,6 +6,10 @@ contract ComplaintContract {
 
     mapping(uint => Complaint) ComplaintMap;
 
+    event ComplaintCreated(
+        uint id
+    );
+
     struct Complaint {
         uint id;
         string name;
@@ -42,6 +46,7 @@ contract ComplaintContract {
         ComplaintMap[complaintCount].status = 0;
         ComplaintMap[complaintCount].description = description;
         ComplaintMap[complaintCount].imageHash = imageHash;
+        emit ComplaintCreated(complaintCount);
     }
 
 }
