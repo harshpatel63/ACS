@@ -62,7 +62,12 @@ function Status() {
     }, []);
     async function getConfidence(lat, long, category = 0) {
         let x = await fetch(
-            "http://localhost:5000/inputs/" + lat + "/" + long + "/" + category
+            "https://5000-harshpatel63-acs-9s5l85vzghd.ws-us64.gitpod.io/inputs/" +
+                lat +
+                "/" +
+                long +
+                "/" +
+                category
         );
         x = await x.json();
         setconfindencelevel(x.confidence);
